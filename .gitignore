@@ -1,0 +1,12 @@
+
+# images folder
+downscaled_images
+training_set
+
+
+# pycache 
+__pycache__
+
+# testing
+testing.ipynb
+model_training.ipynb
