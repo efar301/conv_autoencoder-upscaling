@@ -6,6 +6,8 @@ training_set
 
 # pycache 
 __pycache__
+model_code/__pycache__
+data_handling/__pycache__
 
 # testing
 testing.ipynb
