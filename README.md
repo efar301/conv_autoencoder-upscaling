@@ -17,7 +17,6 @@ This is a convolutional autoencoder designed to upscale images from **1280×720*
       <img src="/images/comparisons_at_epoch/epoch_80_batch4_idx1/upscaled.jpg" alt="Upscaled Image" style="width:400px;">
     </td> 
   </tr>
-  <!-- Add another pair of images below -->
   <tr>
     <td style="text-align:center;">
       <img src="/images/comparisons_at_epoch/epoch_80_batch40_idx2/lowres.jpg" alt="Low Resolution Image" style="width:400px;">
@@ -60,34 +59,14 @@ To address these issues and further enhance the upscaling performance, the follo
   Train the model using the YCbCr color space to potentially increase color accuracy and better preserve luminance details.
   
 - **Architectural Improvements:**  
-  - Experiment with progressive downscaling (i.e., reducing resolution in steps) to better preserve high-frequency information.  
-  - Incorporate additional convolutional layers or residual connections to improve the fidelity of the reconstructed image.
+  - Experiment with progressive downscaling (reducing resolution in steps) to better preserve high-frequency information.  
+  - Incorporate additional convolutional layers or residual connections to improve the quality of the reconstructed image.
   
 - **Variable Resolution Scaling:**  
-  Develop a model capable of handling variable upscale factors, allowing for more flexible resolution enhancements depending on the input.
+  Develop a model capable of handling variable upscale factors so that it is not hard coded to output 1080p images.
   
-- **Real-Time Upscaling for Video & Gaming:**  
-  Aim to extend the technology to upscale video content—and eventually real-time video game graphics—with low latency and minimal performance overhead.
+- **Real-Time Upscaling for Video and Gaming:**  
+  Aim to extend the technology to upscale videos and maybe even video games.
 
 ---
-
-<!-- ![lowres img](/images/comparisons_at_epoch/epoch_80_batch4_idx1/lowres.jpg)
-
-![upscaled img](/images/comparisons_at_epoch/epoch_80_batch4_idx1/upscaled.jpg) -->
-
-<!-- 
-# Current issues are:
-    - dark spots in images lose detail
-    - light spots get desaturated and look washed out as compared to the regular image
-    - model is trained on RGB so colors are not true to the exact
-    - sharpness is hallucinated (can be good or bad based on the image)
-    - some places look blurry compared to original
-
-
-# Future plans are:
-    - train with YCbCr color to hopefully increase color accuracy
-    - improve model architecture (downscale in steps or include more convolutions)
-    - create a variable resolution scaling
-    - upscale video and eventually video games in real time with low latency -->
-
 
