@@ -16,7 +16,7 @@ This is a convolutional autoencoder designed to upscale images from **1280×720*
     </td> 
     <td style="text-align:center;">
       <img src="images\comparisons_at_epoch\epoch_100_batch2_idx1_0.5.1_Huber_Loss\upscaled.jpg" alt="Upscaled Image" style="width:400px;">
-      <figcaption style="text-align:center;">Upscaled image lost fine details in the wood grain</figcaption>
+      <figcaption style="text-align:center;">Upscaled image lost details in the wood grain</figcaption>
     </td> 
   </tr>
   <tr>
@@ -26,7 +26,7 @@ This is a convolutional autoencoder designed to upscale images from **1280×720*
     </td>
     <td style="text-align:center;">
       <img src="images\comparisons_at_epoch\epoch_100_batch4_idx1_0.5.1_Huber_Loss\upscaled.jpg" alt="Upscaled Image" style="width:400px;">
-      <figcaption style="text-align:center;">Warmth added to image during upscaling</figcaption>
+      <figcaption style="text-align:center;">Warmth added to image while upscaling</figcaption>
     </td>
   </tr>
 </table>
