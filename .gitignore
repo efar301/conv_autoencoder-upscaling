@@ -2,6 +2,8 @@
 # images folder
 downscaled_images
 training_set
+testing_set
+training_output
 
 
 # pycache 
@@ -12,3 +14,5 @@ data_handling/__pycache__
 # testing
 testing.ipynb
 model_training.ipynb
+comparison.ipynb
+scoring.ipynb   

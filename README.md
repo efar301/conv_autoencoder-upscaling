@@ -11,19 +11,23 @@ This is a convolutional autoencoder designed to upscale images from **1280×720*
   </tr> 
   <tr> 
     <td style="text-align:center;">
-      <img src="/images/comparisons_at_epoch/epoch_80_batch4_idx1/lowres.jpg" alt="Low Resolution Image" style="width:400px;">
+      <img src="images\comparisons_at_epoch\epoch_100_batch2_idx1_0.5.1_Huber_Loss\lowres.jpg" alt="Low Resolution Image" style="width:400px;">
+      <figcaption style="text-align:center;">Original</figcaption>
     </td> 
     <td style="text-align:center;">
-      <img src="/images/comparisons_at_epoch/epoch_80_batch4_idx1/upscaled.jpg" alt="Upscaled Image" style="width:400px;">
+      <img src="images\comparisons_at_epoch\epoch_100_batch2_idx1_0.5.1_Huber_Loss\upscaled.jpg" alt="Upscaled Image" style="width:400px;">
+      <figcaption style="text-align:center;">Upscaled image lost fine details in the wood grain</figcaption>
     </td> 
   </tr>
   <!-- Add another pair of images below -->
   <tr>
     <td style="text-align:center;">
-      <img src="/images/comparisons_at_epoch/epoch_80_batch40_idx2/lowres.jpg" alt="Low Resolution Image" style="width:400px;">
+      <img src="images\comparisons_at_epoch\epoch_100_batch4_idx1_0.5.1_Huber_Loss\lowres.jpg" alt="Low Resolution Image" style="width:400px;">
+      <figcaption style="text-align:center;">Original</figcaption>
     </td>
     <td style="text-align:center;">
-      <img src="/images/comparisons_at_epoch/epoch_80_batch40_idx2/lowres.jpg" alt="Upscaled Image" style="width:400px;">
+      <img src="images\comparisons_at_epoch\epoch_100_batch4_idx1_0.5.1_Huber_Loss\upscaled.jpg" alt="Upscaled Image" style="width:400px;">
+      <figcaption style="text-align:center;">Warmth added to image during upscaling</figcaption>
     </td>
   </tr>
 </table>
@@ -70,24 +74,4 @@ To address these issues and further enhance the upscaling performance, the follo
   Aim to extend the technology to upscale video content—and eventually real-time video game graphics—with low latency and minimal performance overhead.
 
 ---
-
-<!-- ![lowres img](/images/comparisons_at_epoch/epoch_80_batch4_idx1/lowres.jpg)
-
-![upscaled img](/images/comparisons_at_epoch/epoch_80_batch4_idx1/upscaled.jpg) -->
-
-<!-- 
-# Current issues are:
-    - dark spots in images lose detail
-    - light spots get desaturated and look washed out as compared to the regular image
-    - model is trained on RGB so colors are not true to the exact
-    - sharpness is hallucinated (can be good or bad based on the image)
-    - some places look blurry compared to original
-
-
-# Future plans are:
-    - train with YCbCr color to hopefully increase color accuracy
-    - improve model architecture (downscale in steps or include more convolutions)
-    - create a variable resolution scaling
-    - upscale video and eventually video games in real time with low latency -->
-
 
