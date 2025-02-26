@@ -1,10 +1,9 @@
 
 # images folder
-downscaled_images
-training_set
+train_test_data/training_set/*
+!train_test_data/training_set/
+!train_test_data/training_set/image_10.jpg
 testing_set
-training_output
-
 
 # pycache 
 __pycache__
@@ -19,3 +18,9 @@ scoring.ipynb
 
 # checkpoints
 checkpoints
+
+# image comparisons
+training_info/comparisons_at_epoch
+training_info/training_output/*
+training_info/training_output/0.8.1_MULTIRES/0.8.1_MULTIRES.log  
+!training_info/training_output/0.8.1_MULTIRES/
