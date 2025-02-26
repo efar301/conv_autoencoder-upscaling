@@ -37,6 +37,9 @@ class highres_img_dataset(Dataset):
         
         lr_image_tensor = lr(hr_image)       
         hr_image_tensor = hr(hr_image)
+        
+        assert torch.min(lr_image_tensor) >= 0.0 and torch.max(lr_image_tensor) <= 1.0, "LR image tensor not in range [0, 1]"
+        assert torch.min(hr_image_tensor) >= 0.0 and torch.max(hr_image_tensor) <= 1.0, "HR image tensor not in range [0, 1]"
 
         # Output is a tuple the tensors for the low resolution and high resolution images normalized between 0 and 1
         return lr_image_tensor, hr_image_tensor
