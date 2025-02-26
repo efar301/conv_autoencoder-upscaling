@@ -4,29 +4,37 @@ This is a convolutional autoencoder designed to upscale images from **1280×720*
 
 ## Results Comparison
 
-<table> 
-  <tr> 
-    <th style="text-align:center;">Low Resolution Input (1280×720)</th> 
-    <th style="text-align:center;">Upscaled Output (1920×1080)</th> 
-  </tr> 
-  <tr> 
-    <td style="text-align:center;">
-      <img src="images\comparisons_at_epoch\epoch_100_batch2_idx1_0.5.1_Huber_Loss\lowres.jpg" alt="Low Resolution Image" style="width:400px;">
-      <figcaption style="text-align:center;">Original</figcaption>
-    </td> 
-    <td style="text-align:center;">
-      <img src="images\comparisons_at_epoch\epoch_100_batch2_idx1_0.5.1_Huber_Loss\upscaled.jpg" alt="Upscaled Image" style="width:400px;">
-      <figcaption style="text-align:center;">Upscaled image lost fine details in the wood grain</figcaption>
-    </td> 
+<table>
+  <tr>
+    <th style="text-align:center;">Low Resolution Input (1280×720)</th>
+    <th style="text-align:center;">Upscaled Output (1920×1080)</th>
   </tr>
   <tr>
     <td style="text-align:center;">
-      <img src="images\comparisons_at_epoch\epoch_100_batch4_idx1_0.5.1_Huber_Loss\lowres.jpg" alt="Low Resolution Image" style="width:400px;">
-      <figcaption style="text-align:center;">Original</figcaption>
+      <div style="text-align:center;">
+        <img src="images\comparisons_at_epoch\epoch_100_batch2_idx1_0.5.1_Huber_Loss\lowres.jpg" alt="Low Resolution Image" style="width:400px;">
+        <p>Original</p>
+      </div>
     </td>
     <td style="text-align:center;">
-      <img src="images\comparisons_at_epoch\epoch_100_batch4_idx1_0.5.1_Huber_Loss\upscaled.jpg" alt="Upscaled Image" style="width:400px;">
-      <figcaption style="text-align:center;">Warmth added to image during upscaling</figcaption>
+      <div style="text-align:center;">
+        <img src="images\comparisons_at_epoch\epoch_100_batch2_idx1_0.5.1_Huber_Loss\upscaled.jpg" alt="Upscaled Image" style="width:400px;">
+        <p>Upscaled image lost details in the wood grain</p>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align:center;">
+      <div style="text-align:center;">
+        <img src="images\comparisons_at_epoch\epoch_100_batch4_idx1_0.5.1_Huber_Loss\lowres.jpg" alt="Low Resolution Image" style="width:400px;">
+        <p>Original</p>
+      </div>
+    </td>
+    <td style="text-align:center;">
+      <div style="text-align:center;">
+        <img src="images\comparisons_at_epoch\epoch_100_batch4_idx1_0.5.1_Huber_Loss\upscaled.jpg" alt="Upscaled Image" style="width:400px;">
+        <p>Warmth added to image while upscaling</p>
+      </div>
     </td>
   </tr>
 </table>
