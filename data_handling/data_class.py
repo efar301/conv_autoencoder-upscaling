@@ -17,14 +17,11 @@ class highres_img_dataset(Dataset):
     def __getitem__(self, idx):
         img_path = self.image_files[idx]
         
+        # Convert image to RGB for training
         hr_image = Image.open(img_path)
-        
-        # For some reason when images are displayed in YCbCr 
-        # I need to research this more and figure out why this is happening
-        # Due to this, I will just use RGB for now and accept color variations in the output from the model
-        
         hr_image = Image.open(img_path).convert('RGB')
         
+        # Downscale original image to 720p for model starting point
         lr = transform.Compose([
             transform.Resize((720, 1280)),
             transform.ToTensor()
@@ -35,17 +32,23 @@ class highres_img_dataset(Dataset):
             transform.ToTensor()
         ])
         
+        # Converting images to tensors
+        # .ToTensor() normalizes tensors to range [0, 1]
         lr_image_tensor = lr(hr_image)       
         hr_image_tensor = hr(hr_image)
         
+        # This is to confirm that images are normalized between 0 and 1
         assert torch.min(lr_image_tensor) >= 0.0 and torch.max(lr_image_tensor) <= 1.0, "LR image tensor not in range [0, 1]"
         assert torch.min(hr_image_tensor) >= 0.0 and torch.max(hr_image_tensor) <= 1.0, "HR image tensor not in range [0, 1]"
 
         # Output is a tuple the tensors for the low resolution and high resolution images normalized between 0 and 1
         return lr_image_tensor, hr_image_tensor
 
+
+
+
+
     # Returns YCbCr image tensors
-    
     # def __getitem__(self, idx):
     #     img_path = self.image_files[idx]
         

@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+# BerHu loss function as described from here
+# https://stats.stackexchange.com/questions/647393/berhu-custom-loss-function-for-xgboost
 class berhu_loss_func(nn.Module):
     def __init__(self, threshold=0.2):
         super(berhu_loss_func, self).__init__()
