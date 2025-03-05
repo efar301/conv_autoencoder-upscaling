@@ -31,12 +31,12 @@ class fastUpscaler_dataset(Dataset):
     def __getitem__(self, idx):
         image_file = self.images[idx]
         hr = np.array(Image.open(image_file).convert('RGB'))
-        cropped_hr = self.random_crop['image']
+        cropped_hr = self.random_crop(image=hr)['image']
         
         if self.transform is not None:
             cropped_hr = self.transform(image=cropped_hr)['image']
             
-        downscale_factor = np.random.choice(self.upscale_factors)   
+        downscale_factor = 4   
         hr_height, hr_width = cropped_hr.shape[:2]
         lr_height, lr_width = hr_height // downscale_factor, hr_width // downscale_factor
         
@@ -46,13 +46,7 @@ class fastUpscaler_dataset(Dataset):
         hr_tensor = self.to_tensor(image=cropped_hr)['image']
         lr_tensor = self.to_tensor(image=lr_image)['image']
         
-        return lr_tensor, hr_tensor
-        
-        
-        
-        
-            
-            
+        return lr_tensor, hr_tensor, downscale_factor 
             
 random_transform = A.Compose([
     A.HorizontalFlip(p=0.5),

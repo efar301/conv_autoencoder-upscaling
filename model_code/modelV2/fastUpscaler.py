@@ -37,26 +37,28 @@ class resblock(nn.Module):
 
 class fastUpscaler(nn.Module):
     # final layer must have C X R^2 channels where R is upscale factor
-    def __init__(self, in_channels, channels, upscale_factor=3):
+    def __init__(self, in_channels, channels, upscale_factors=[3, 4, 6]):
         super(fastUpscaler, self).__init__()
         self.in_channels = in_channels
-        self.upscale_factor = upscale_factor
+        self.upscale_factor = upscale_factors
         self.hidden_channels = channels // 2
-        self.out_channels = int(3 * (upscale_factor ** 2))
         
         self.prelim = nn.Sequential(
             resblock(in_channels, channels),
             resblock(channels, self.hidden_channels)
         )
         
-        self.pixel_shuffle = nn.Sequential(
-            nn.Conv2d(self.hidden_channels, self.out_channels, kernel_size=3, stride=1, padding=1),
-            nn.PixelShuffle(upscale_factor)
-        )
+        self.heads = nn.ModuleDict()
+        for factor in upscale_factors:
+                out_channels = 3 * (factor ** 2)
+                self.heads[str(factor)] = nn.Sequential(
+                    nn.Conv2d(self.hidden_channels, out_channels, kernel_size=3, stride=1, padding=1),
+                    nn.PixelShuffle(factor)
+                )
         
-    def forward(self, x):
+    def forward(self, x, scale_factor):
         x = self.prelim(x)
-        x = self.pixel_shuffle(x)
+        x = self.heads[str(scale_factor)](x)
         
         x = torch.clamp(x, 0.0, 1.0)
         
@@ -64,9 +66,9 @@ class fastUpscaler(nn.Module):
     
 def test():
     x = torch.randn((3, 3, 640, 360))
-    model = fastUpscaler(in_channels=3, channels=64, upscale_factor=3)
+    model = fastUpscaler(in_channels=3, channels=64, upscale_factors=[3, 4, 6])
     
-    preds = model(x)
+    preds = model(x, 3)
     
     print(preds.shape)
     print(x.shape)
